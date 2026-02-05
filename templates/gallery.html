@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block title %}Gallery | Academic Coaching{% endblock %}
+{% block content %}
+<div class="container mx-auto py-10">
+  <h2 class="text-3xl font-bold mb-6 text-center text-blue-700">Gallery</h2>
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+    <!-- Example images, replace with dynamic data -->
+    <div class="overflow-hidden rounded-lg shadow-lg">
+      <img src="{{ url_for('static', filename='img/gallery1.jpg') }}" alt="Annual Function" class="w-full h-56 object-cover hover:scale-105 transition-transform duration-300">
+      <div class="p-4">
+        <h3 class="font-semibold">Annual Function 2025</h3>
+      </div>
+    </div>
+    <div class="overflow-hidden rounded-lg shadow-lg">
+      <img src="{{ url_for('static', filename='img/gallery2.jpg') }}" alt="Science Fair" class="w-full h-56 object-cover hover:scale-105 transition-transform duration-300">
+      <div class="p-4">
+        <h3 class="font-semibold">Science Fair</h3>
+      </div>
+    </div>
+    <!-- Add more images as needed -->
+  </div>
+</div>
+{% endblock %}

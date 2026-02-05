@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block title %}Fee Structure | Academic Coaching{% endblock %}
+{% block content %}
+<div class="container mx-auto py-10">
+  <h2 class="text-3xl font-bold mb-6 text-center text-blue-700">Fee Structure</h2>
+  <div class="overflow-x-auto">
+    <table class="min-w-full bg-white shadow-lg rounded-lg">
+      <thead class="bg-blue-600 text-white">
+        <tr>
+          <th class="py-3 px-4">Class</th>
+          <th class="py-3 px-4">Course</th>
+          <th class="py-3 px-4">Duration</th>
+          <th class="py-3 px-4">Fee (INR)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Example row, replace with dynamic data -->
+        <tr class="border-b">
+          <td class="py-2 px-4">8</td>
+          <td class="py-2 px-4">Mathematics + Science</td>
+          <td class="py-2 px-4">1 Year</td>
+          <td class="py-2 px-4">18,000</td>
+        </tr>
+        <tr class="border-b">
+          <td class="py-2 px-4">10</td>
+          <td class="py-2 px-4">All Subjects</td>
+          <td class="py-2 px-4">1 Year</td>
+          <td class="py-2 px-4">22,000</td>
+        </tr>
+        <!-- Add more rows as needed -->
+      </tbody>
+    </table>
+  </div>
+  <div class="mt-6 text-center">
+    <a href="#" class="bg-green-600 hover:bg-green-700 text-white px-6 py-2 rounded transition">Pay Online</a>
+  </div>
+</div>
+{% endblock %}

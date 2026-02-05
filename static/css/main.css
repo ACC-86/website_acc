@@ -1,0 +1,6 @@
+# Tailwind CSS CDN for rapid prototyping. Replace with build process for production.
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Poppins:wght@400;600;700&display=swap');
+
+body {
+    font-family: 'Poppins', 'Inter', sans-serif;
+}

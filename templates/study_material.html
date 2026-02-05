@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block title %}Study Material | Academic Coaching{% endblock %}
+{% block content %}
+<div class="container mx-auto py-10">
+  <h2 class="text-3xl font-bold mb-6 text-center text-blue-700">Download Study Material</h2>
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+    <!-- Example card, replace with dynamic data -->
+    <div class="bg-white shadow-lg rounded-lg p-6 flex flex-col items-center">
+      <h3 class="text-xl font-semibold mb-2">Class 8 Maths Notes</h3>
+      <p class="mb-4 text-gray-600">Comprehensive notes for all chapters.</p>
+      <a href="#" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded transition">Download PDF</a>
+    </div>
+    <div class="bg-white shadow-lg rounded-lg p-6 flex flex-col items-center">
+      <h3 class="text-xl font-semibold mb-2">Class 10 Science Worksheets</h3>
+      <p class="mb-4 text-gray-600">Practice worksheets for board exam prep.</p>
+      <a href="#" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded transition">Download PDF</a>
+    </div>
+    <!-- Add more cards as needed -->
+  </div>
+</div>
+{% endblock %}

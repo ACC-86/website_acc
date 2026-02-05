@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block title %}Announcements | Academic Coaching{% endblock %}
+{% block content %}
+<div class="container mx-auto py-10">
+  <h2 class="text-3xl font-bold mb-6 text-center text-blue-700">Latest Announcements</h2>
+  <div class="space-y-6">
+    <!-- Example announcement, replace with dynamic data -->
+    <div class="bg-yellow-100 border-l-4 border-yellow-500 p-4 shadow rounded">
+      <h3 class="font-semibold text-lg">Winter Break Notice</h3>
+      <p class="text-gray-700">All classes will remain suspended from 24th Dec to 2nd Jan for winter break.</p>
+      <span class="text-xs text-gray-500">Posted on: 20 Dec 2025</span>
+    </div>
+    <div class="bg-blue-100 border-l-4 border-blue-500 p-4 shadow rounded">
+      <h3 class="font-semibold text-lg">Olympiad Registration Open</h3>
+      <p class="text-gray-700">Register for the Science and Maths Olympiad by 10th Feb 2026.</p>
+      <span class="text-xs text-gray-500">Posted on: 1 Feb 2026</span>
+    </div>
+    <!-- Add more announcements as needed -->
+  </div>
+</div>
+{% endblock %}

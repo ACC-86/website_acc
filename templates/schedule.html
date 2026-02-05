@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block title %}Class Schedule | Academic Coaching{% endblock %}
+{% block content %}
+<div class="container mx-auto py-10">
+  <h2 class="text-3xl font-bold mb-6 text-center text-blue-700">Class Schedules & Timetables</h2>
+  <div class="overflow-x-auto">
+    <table class="min-w-full bg-white shadow-lg rounded-lg">
+      <thead class="bg-blue-600 text-white">
+        <tr>
+          <th class="py-3 px-4">Class</th>
+          <th class="py-3 px-4">Subject</th>
+          <th class="py-3 px-4">Day</th>
+          <th class="py-3 px-4">Time</th>
+          <th class="py-3 px-4">Faculty</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Example row, replace with dynamic data -->
+        <tr class="border-b">
+          <td class="py-2 px-4">8</td>
+          <td class="py-2 px-4">Mathematics</td>
+          <td class="py-2 px-4">Monday</td>
+          <td class="py-2 px-4">4:00 PM - 5:30 PM</td>
+          <td class="py-2 px-4">Mr. Sharma</td>
+        </tr>
+        <tr class="border-b">
+          <td class="py-2 px-4">10</td>
+          <td class="py-2 px-4">Science</td>
+          <td class="py-2 px-4">Wednesday</td>
+          <td class="py-2 px-4">5:45 PM - 7:15 PM</td>
+          <td class="py-2 px-4">Ms. Gupta</td>
+        </tr>
+        <!-- Add more rows as needed -->
+      </tbody>
+    </table>
+  </div>
+</div>
+{% endblock %}

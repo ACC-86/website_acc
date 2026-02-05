@@ -1,0 +1,264 @@
+{% extends 'base.html' %}
+{% block title %}Home | Academic Coaching Classes{% endblock %}
+{% block content %}
+<!-- Carousel Banner Start -->
+<div class="mx-auto w-full py-8 flex flex-col items-center bg-gray-100 rounded-xl shadow mb-8">
+  <h2 class="text-2xl font-bold mb-2 text-blue-700">Carousel Banner</h2>
+  <p class="text-gray-600 text-center max-w-2xl">This is a placeholder for your custom carousel banner. You can add your own images, promotional banners, or announcements here. No external images or links are used. Replace this section with your own content as needed.</p>
+</div>
+<!-- Hero Section -->
+<section id="hero" class="bg-gradient-to-br from-blue-100 via-teal-100 to-pink-100 py-12 rounded-b-3xl shadow-lg mb-8">
+  <div class="max-w-4xl mx-auto text-center">
+    <h1 class="text-4xl md:text-5xl font-bold mb-4 text-blue-700">Empowering Students for Academic Excellence</h1>
+    <p class="text-lg md:text-xl text-gray-700 mb-6">Maths, Science & more. Trusted by hundreds of students in Chanderi.</p>
+    <div class="flex flex-col md:flex-row justify-center gap-4">
+      <a href="/admission" class="bg-blue-600 text-white px-8 py-3 rounded-lg shadow hover:bg-blue-700 transition text-lg font-semibold">Enroll Now</a>
+      <a href="tel:8602580207" class="bg-white border border-blue-600 text-blue-700 px-8 py-3 rounded-lg shadow hover:bg-blue-50 transition text-lg font-semibold">Call Us</a>
+    </div>
+  </div>
+</section>
+<!-- Carousel Banner End -->
+<!-- Subjects Offered -->
+<section id="subjects" class="max-w-5xl mx-auto py-8">
+  <h2 class="text-2xl font-bold text-center mb-6">Subjects Offered</h2>
+  <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+    <div class="bg-white rounded-xl shadow p-4 flex flex-col items-center">
+      <i class="fas fa-square-root-alt text-3xl text-blue-500 mb-2"></i>
+      <span class="font-semibold">Mathematics</span>
+    </div>
+    <div class="bg-white rounded-xl shadow p-4 flex flex-col items-center">
+      <i class="fas fa-flask text-3xl text-teal-500 mb-2"></i>
+      <span class="font-semibold">Science</span>
+    </div>
+    <div class="bg-white rounded-xl shadow p-4 flex flex-col items-center">
+      <i class="fas fa-book text-3xl text-pink-500 mb-2"></i>
+      <span class="font-semibold">English</span>
+    </div>
+    <div class="bg-white rounded-xl shadow p-4 flex flex-col items-center">
+      <i class="fas fa-globe-asia text-3xl text-blue-400 mb-2"></i>
+      <span class="font-semibold">Social Science</span>
+    </div>
+  </div>
+</section>
+<!-- Why Choose Us -->
+<section id="why-us" class="bg-white py-10 rounded-xl shadow max-w-5xl mx-auto my-8">
+  <h2 class="text-2xl font-bold text-center mb-6">Why Choose Us?</h2>
+  <div class="grid md:grid-cols-3 gap-6">
+    <div class="bg-blue-50 rounded-lg p-6 shadow flex flex-col items-center">
+      <i class="fas fa-user-tie text-2xl text-blue-600 mb-2"></i>
+      <span class="font-semibold">Experienced Faculty</span>
+    </div>
+    <div class="bg-teal-50 rounded-lg p-6 shadow flex flex-col items-center">
+      <i class="fas fa-award text-2xl text-teal-600 mb-2"></i>
+      <span class="font-semibold">Proven Results</span>
+    </div>
+    <div class="bg-pink-50 rounded-lg p-6 shadow flex flex-col items-center">
+      <i class="fas fa-chalkboard-teacher text-2xl text-pink-600 mb-2"></i>
+      <span class="font-semibold">Personalized Attention</span>
+    </div>
+  </div>
+</section>
+<!-- Results / Achievements -->
+<section id="results" class="max-w-5xl mx-auto py-8">
+  <h2 class="text-2xl font-bold text-center mb-6">Our Results & Achievements</h2>
+  <div class="grid md:grid-cols-3 gap-6">
+    {% for t in testimonials %}
+    <div class="bg-white rounded-xl shadow p-6">
+      <p class="italic text-gray-700 mb-2">"{{ t.message }}"</p>
+      <div class="font-semibold text-blue-600">- {{ t.name }}</div>
+    </div>
+    {% else %}
+    <div class="col-span-3 text-center text-gray-400">No testimonials yet.</div>
+    {% endfor %}
+  </div>
+</section>
+<!-- Faculty Section -->
+<section id="faculty" class="bg-white py-10 rounded-xl shadow max-w-5xl mx-auto my-8">
+  <h2 class="text-2xl font-bold text-center mb-6">Our Faculty</h2>
+  <div class="flex flex-col md:flex-row justify-center gap-8">
+    <div class="flex flex-col items-center">
+      <img src="/static/img/teacher.png" alt="Suneel Prajapati" class="w-28 h-29 shadow mb-2 object-cover">
+      <span class="font-semibold">Suneel Prajapati</span>
+      <span class="text-sm text-gray-500">Maths & Science</span>
+    </div>
+    <!-- Add more faculty as needed -->
+  </div>
+</section>
+
+<!-- Class Schedules & Timetables Section -->
+<section id="schedule" class="bg-white py-10 rounded-xl shadow max-w-5xl mx-auto my-8">
+  <h2 class="text-2xl font-bold text-center mb-6 text-blue-700">Class Schedules & Timetables</h2>
+  <div class="overflow-x-auto">
+    <table class="min-w-full bg-white shadow-lg rounded-lg">
+      <thead class="bg-blue-600 text-white">
+        <tr>
+          <th class="py-3 px-4">Class</th>
+          <th class="py-3 px-4">Subject</th>
+          <th class="py-3 px-4">Day</th>
+          <th class="py-3 px-4">Time</th>
+          <th class="py-3 px-4">Faculty</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="border-b">
+          <td class="py-2 px-4">8</td>
+          <td class="py-2 px-4">Mathematics</td>
+          <td class="py-2 px-4">Monday</td>
+          <td class="py-2 px-4">4:00 PM - 5:30 PM</td>
+          <td class="py-2 px-4">Mr. Sharma</td>
+        </tr>
+        <tr class="border-b">
+          <td class="py-2 px-4">10</td>
+          <td class="py-2 px-4">Science</td>
+          <td class="py-2 px-4">Wednesday</td>
+          <td class="py-2 px-4">5:45 PM - 7:15 PM</td>
+          <td class="py-2 px-4">Ms. Gupta</td>
+        </tr>
+        <!-- Add more rows as needed -->
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- Gallery Section -->
+<section id="gallery" class="bg-white py-10 rounded-xl shadow max-w-5xl mx-auto my-8">
+  <h2 class="text-2xl font-bold mb-6 text-center text-blue-700">Gallery</h2>
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+    <div class="overflow-hidden rounded-lg shadow-lg">
+      <img src="{{ url_for('static', filename='img/gallery1.jpg') }}" alt="Annual Function" class="w-full h-56 object-cover hover:scale-105 transition-transform duration-300">
+      <div class="p-4">
+        <h3 class="font-semibold">Annual Function 2025</h3>
+      </div>
+    </div>
+    <div class="overflow-hidden rounded-lg shadow-lg">
+      <img src="{{ url_for('static', filename='img/gallery2.jpg') }}" alt="Science Fair" class="w-full h-56 object-cover hover:scale-105 transition-transform duration-300">
+      <div class="p-4">
+        <h3 class="font-semibold">Science Fair</h3>
+      </div>
+    </div>
+    <!-- Add more images as needed -->
+  </div>
+</section>
+
+<!-- FAQs Section -->
+<section id="faqs" class="bg-white py-10 rounded-xl shadow max-w-5xl mx-auto my-8">
+  <h2 class="text-2xl font-bold mb-6 text-center text-blue-700">Frequently Asked Questions</h2>
+  <div class="space-y-4 max-w-2xl mx-auto">
+    <div class="bg-white shadow rounded-lg p-4">
+      <h3 class="font-semibold text-lg">What classes do you offer coaching for?</h3>
+      <p class="text-gray-700">We offer coaching for classes 5th to 12th (all boards).</p>
+    </div>
+    <div class="bg-white shadow rounded-lg p-4">
+      <h3 class="font-semibold text-lg">Is there a scholarship or discount available?</h3>
+      <p class="text-gray-700">Yes, we offer scholarships based on merit and need. Please contact us for details.</p>
+    </div>
+    <!-- Add more FAQs as needed -->
+  </div>
+</section>
+
+<!-- Quick Access Cards Section -->
+<section class="max-w-5xl mx-auto py-10">
+  <h2 class="text-2xl font-bold text-center mb-8 text-blue-700">Quick Access</h2>
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+    <!-- Fee Structure Card -->
+    <button type="button" id="open-fee-modal" class="block w-full bg-white rounded-xl shadow-lg p-8 text-center hover:bg-blue-50 transition focus:outline-none">
+      <div class="flex justify-center mb-4">
+        <i class="fas fa-rupee-sign text-4xl text-blue-600"></i>
+      </div>
+      <h3 class="font-semibold text-xl mb-2">Fee Structure</h3>
+      <p class="text-gray-600">View our transparent and affordable fee structure for all classes and courses.</p>
+    </button>
+    <!-- Contact Card -->
+    <button type="button" id="open-contact-modal" class="block w-full bg-white rounded-xl shadow-lg p-8 text-center hover:bg-blue-50 transition focus:outline-none">
+      <div class="flex justify-center mb-4">
+        <i class="fas fa-phone-alt text-4xl text-green-600"></i>
+      </div>
+      <h3 class="font-semibold text-xl mb-2">Contact</h3>
+      <p class="text-gray-600">Have questions? Reach out to us for any inquiries or support.</p>
+    </button>
+    <!-- Login Card -->
+    <button type="button" id="open-login-modal" class="block w-full bg-white rounded-xl shadow-lg p-8 text-center hover:bg-blue-50 transition focus:outline-none">
+      <div class="flex justify-center mb-4">
+        <i class="fas fa-sign-in-alt text-4xl text-purple-600"></i>
+      </div>
+      <h3 class="font-semibold text-xl mb-2">Login</h3>
+      <p class="text-gray-600">Access your student or admin dashboard securely.</p>
+    </button>
+  </div>
+</section>
+
+<!-- Fee Structure Modal -->
+<div id="fee-modal" class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-40 hidden">
+  <div class="bg-white rounded-xl shadow-lg max-w-lg w-full p-8 relative">
+    <button class="absolute top-2 right-2 text-gray-400 hover:text-gray-700 text-2xl font-bold" onclick="document.getElementById('fee-modal').classList.add('hidden')">&times;</button>
+    <h2 class="text-2xl font-bold mb-4 text-blue-700">Fee Structure</h2>
+    <p class="mb-2 text-gray-700">Our transparent and affordable fee structure for all classes and courses:</p>
+    <ul class="list-disc pl-6 text-gray-700 mb-4">
+      <li>Class 8-10: ₹1200/month</li>
+      <li>Class 11-12: ₹1500/month</li>
+      <li>Special Courses: Contact for details</li>
+    </ul>
+    <p class="text-sm text-gray-500">For more details, please visit the center or call us.</p>
+  </div>
+</div>
+
+<!-- Contact Modal -->
+<div id="contact-modal" class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-40 hidden">
+  <div class="bg-white rounded-xl shadow-lg max-w-lg w-full p-8 relative">
+    <button class="absolute top-2 right-2 text-gray-400 hover:text-gray-700 text-2xl font-bold" onclick="document.getElementById('contact-modal').classList.add('hidden')">&times;</button>
+    <h2 class="text-2xl font-bold mb-4 text-green-700">Contact Us</h2>
+    <p class="mb-2 text-gray-700">Phone: <a href="tel:8602580207" class="text-blue-600 hover:underline">8602580207</a>, <a href="tel:9691890053" class="text-blue-600 hover:underline">9691890053</a></p>
+    <p class="mb-2 text-gray-700">Address: SADA COLONY, NEAR NEW BUS STAND, CHANDERI, ASHOKNAGAR (M.P.)</p>
+    <p class="mb-2 text-gray-700">Email: <a href="mailto:info@academiccoaching.com" class="text-blue-600 hover:underline">info@academiccoaching.com</a></p>
+    <p class="text-sm text-gray-500">Or use the contact form on our Contact page.</p>
+  </div>
+</div>
+
+<!-- Login Modal -->
+<div id="login-modal" class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-40 hidden">
+  <div class="bg-white rounded-xl shadow-lg max-w-md w-full p-8 relative">
+    <button class="absolute top-2 right-2 text-gray-400 hover:text-gray-700 text-2xl font-bold" onclick="document.getElementById('login-modal').classList.add('hidden')">&times;</button>
+    <h2 class="text-2xl font-bold mb-4 text-purple-700">Login</h2>
+    <form method="post" action="/login">
+      <div class="mb-4">
+        <label class="block text-gray-700 mb-2" for="username">Username</label>
+        <input class="w-full border rounded px-3 py-2" type="text" id="username" name="username" required>
+      </div>
+      <div class="mb-4">
+        <label class="block text-gray-700 mb-2" for="password">Password</label>
+        <input class="w-full border rounded px-3 py-2" type="password" id="password" name="password" required>
+      </div>
+      <button type="submit" class="w-full bg-purple-600 text-white py-2 rounded hover:bg-purple-700 transition">Login</button>
+    </form>
+  </div>
+</div>
+<!-- Location Map Embed -->
+<section id="find-us" class="max-w-5xl mx-auto py-8">
+  <h2 class="text-2xl font-bold text-center mb-6">Find Us</h2>
+  <div class="rounded-xl overflow-hidden shadow-lg">
+    <iframe src="https://www.google.com/maps?q=SADA+COLONY,+NEAR+NEW+BUS+STAND,+CHANDERI,+ASHOKNAGAR+(M.P.)&output=embed" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+  </div>
+</section>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    document.getElementById('open-fee-modal').onclick = function() {
+      document.getElementById('fee-modal').classList.remove('hidden');
+    };
+    document.getElementById('open-contact-modal').onclick = function() {
+      document.getElementById('contact-modal').classList.remove('hidden');
+    };
+    document.getElementById('open-login-modal').onclick = function() {
+      document.getElementById('login-modal').classList.remove('hidden');
+    };
+    // Close modal on background click
+    ['fee-modal','contact-modal','login-modal'].forEach(function(id) {
+      var modal = document.getElementById(id);
+      if (modal) {
+        modal.addEventListener('click', function(e) {
+          if (e.target === modal) modal.classList.add('hidden');
+        });
+      }
+    });
+  });
+</script>
+{% endblock %}

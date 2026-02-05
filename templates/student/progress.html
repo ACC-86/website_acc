@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block title %}Progress Tracker | Academic Coaching Classes{% endblock %}
+{% block content %}
+<section class="max-w-4xl mx-auto py-10">
+  <h1 class="text-3xl font-bold mb-6 text-blue-700">Progress Tracker</h1>
+  <div class="bg-white rounded-xl shadow p-6">
+    <canvas id="progressChart" height="120"></canvas>
+  </div>
+</section>
+{% block scripts %}
+<script>
+  // Example Chart.js usage
+  var ctx = document.getElementById('progressChart').getContext('2d');
+  new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: ['Maths', 'Science', 'English'],
+      datasets: [{
+        label: 'Progress (%)',
+        data: [80, 70, 90],
+        backgroundColor: ['#2563eb', '#14b8a6', '#ec4899']
+      }]
+    },
+    options: {scales: {y: {beginAtZero: true, max: 100}}}
+  });
+</script>
+{% endblock %}
+{% endblock %}

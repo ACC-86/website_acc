@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block title %}Analytics | Admin | Academic Coaching Classes{% endblock %}
+{% block content %}
+<section class="max-w-4xl mx-auto py-10">
+  <h1 class="text-3xl font-bold mb-6 text-blue-700">Analytics Dashboard</h1>
+  <div class="bg-white rounded-xl shadow p-6">
+    <canvas id="adminAnalyticsChart" height="120"></canvas>
+  </div>
+</section>
+{% block scripts %}
+<script>
+  // Example Chart.js usage
+  var ctx = document.getElementById('adminAnalyticsChart').getContext('2d');
+  new Chart(ctx, {
+    type: 'pie',
+    data: {
+      labels: ['Maths', 'Science', 'English'],
+      datasets: [{
+        label: 'Students',
+        data: [50, 30, 20],
+        backgroundColor: ['#2563eb', '#14b8a6', '#ec4899']
+      }]
+    }
+  });
+</script>
+{% endblock %}
+{% endblock %}

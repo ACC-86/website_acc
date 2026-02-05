@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block title %}Faculty | Academic Coaching{% endblock %}
+{% block content %}
+<div class="container mx-auto py-10">
+  <h2 class="text-3xl font-bold mb-6 text-center text-blue-700">Our Faculty</h2>
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+    <!-- Example faculty card, replace with dynamic data -->
+    <div class="bg-white shadow-lg rounded-lg p-6 flex flex-col items-center">
+      <img src="{{ url_for('static', filename='img/faculty1.jpg') }}" alt="Faculty" class="w-20 h-20 rounded-full mb-4">
+      <h3 class="text-xl font-semibold mb-1">Mr. Sunil Sharma</h3>
+      <p class="text-gray-600 mb-2">Mathematics (M.Sc, B.Ed)</p>
+      <span class="text-blue-600 font-medium">10+ years experience</span>
+    </div>
+    <div class="bg-white shadow-lg rounded-lg p-6 flex flex-col items-center">
+      <img src="{{ url_for('static', filename='img/faculty2.jpg') }}" alt="Faculty" class="w-20 h-20 rounded-full mb-4">
+      <h3 class="text-xl font-semibold mb-1">Ms. Priya Gupta</h3>
+      <p class="text-gray-600 mb-2">Science (M.Sc, B.Ed)</p>
+      <span class="text-blue-600 font-medium">8+ years experience</span>
+    </div>
+    <!-- Add more faculty cards as needed -->
+  </div>
+</div>
+{% endblock %}

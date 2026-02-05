@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block title %}Live Chat | Academic Coaching{% endblock %}
+{% block content %}
+<div class="container mx-auto py-10 text-center">
+  <h2 class="text-3xl font-bold mb-6 text-blue-700">Live Chat Support</h2>
+  <p class="mb-4">For instant support, use the chat widget at the bottom right corner of your screen.</p>
+  <p class="text-gray-600">Our team is available 9am–8pm, Monday to Saturday.</p>
+</div>
+{% endblock %}
+{% block scripts %}
+<!-- Example: Tawk.to or other live chat widget -->
+<script type="text/javascript">
+var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+(function(){
+var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+s1.async=true;
+s1.src='https://embed.tawk.to/your_property_id/1xxxxxxx';
+s1.charset='UTF-8';
+s1.setAttribute('crossorigin','*');
+s0.parentNode.insertBefore(s1,s0);
+})();
+</script>
+{% endblock %}

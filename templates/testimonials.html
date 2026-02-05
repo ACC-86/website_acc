@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block title %}Testimonials | Academic Coaching{% endblock %}
+{% block content %}
+<div class="container mx-auto py-10">
+  <h2 class="text-3xl font-bold mb-6 text-center text-blue-700">What Our Students & Parents Say</h2>
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+    <!-- Example testimonial, replace with dynamic data -->
+    <div class="bg-white shadow-lg rounded-lg p-6 flex flex-col items-center">
+      <img src="{{ url_for('static', filename='img/user1.jpg') }}" alt="Student" class="w-16 h-16 rounded-full mb-4">
+      <p class="text-gray-700 mb-2">"The teachers are very supportive and the study material is excellent!"</p>
+      <span class="font-semibold text-blue-600">Amit, Class 10</span>
+    </div>
+    <div class="bg-white shadow-lg rounded-lg p-6 flex flex-col items-center">
+      <img src="{{ url_for('static', filename='img/user2.jpg') }}" alt="Parent" class="w-16 h-16 rounded-full mb-4">
+      <p class="text-gray-700 mb-2">"My daughter improved a lot after joining. Highly recommended."</p>
+      <span class="font-semibold text-blue-600">Mrs. Sharma, Parent</span>
+    </div>
+    <!-- Add more testimonials as needed -->
+  </div>
+</div>
+{% endblock %}

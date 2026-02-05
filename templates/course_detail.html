@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block title %}Course Details | Academic Coaching Classes{% endblock %}
+{% block content %}
+<section class="max-w-3xl mx-auto py-10">
+  <h1 class="text-3xl font-bold mb-4 text-blue-700">{{ course.name }}</h1>
+  <p class="mb-6 text-gray-700">{{ course.description }}</p>
+  <div class="bg-white rounded-xl shadow p-6 mb-6">
+    <h2 class="text-xl font-semibold mb-2">Syllabus</h2>
+    <ul class="list-disc pl-6">
+      {% for topic in course.syllabus %}
+      <li>{{ topic }}</li>
+      {% endfor %}
+    </ul>
+  </div>
+  <a href="/admission" class="bg-blue-600 text-white px-6 py-3 rounded-lg shadow hover:bg-blue-700 transition font-semibold">Enroll in this Course</a>
+</section>
+{% endblock %}
