@@ -2,31 +2,33 @@
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-16">
     <div class="flex items-center">
       <a href="/">
-        <img src="/static/img/logo.png" alt="Academic Coaching Logo" class="h-12 w-25 mr-2 shadow" style="object-fit:cover;">
+        <img src="/static/img/logo.png" alt="{{ _('Academic Coaching Logo') }}" class="h-12 w-25 mr-2 shadow" style="object-fit:cover;">
       </a>
     </div>
     <div class="hidden md:flex space-x-6 items-center">
-      <a href="/" class="hover:text-blue-600 font-semibold" data-scroll="hero">Home</a>
-      <a href="/courses" class="hover:text-blue-600 font-semibold" data-scroll="subjects">Courses</a>
-      <a href="/schedule" class="hover:text-blue-600 font-semibold" data-scroll="schedule">Schedule</a>
-      <a href="/study-material" class="hover:text-blue-600 font-semibold" data-scroll="study-material">Study Material</a>
-      <a href="/announcements" class="hover:text-blue-600 font-semibold" data-scroll="announcements">Announcements</a>
-      <a href="/gallery" class="hover:text-blue-600 font-semibold" data-scroll="gallery">Gallery</a>
+      <a href="/" class="hover:text-blue-600 font-semibold" data-scroll="hero">{{ _('Home') }}</a>
+      <a href="/courses" class="hover:text-blue-600 font-semibold" data-scroll="subjects">{{ _('Courses') }}</a>
+      <a href="/schedule" class="hover:text-blue-600 font-semibold" data-scroll="schedule">{{ _('Schedule') }}</a>
+      <a href="/study-material" class="hover:text-blue-600 font-semibold" data-scroll="study-material">{{ _('Study Material') }}</a>
+      <a href="/announcements" class="hover:text-blue-600 font-semibold" data-scroll="announcements">{{ _('Announcements') }}</a>
+        <a href="/admin/class_schedules" class="hover:text-yellow-600 font-semibold" data-scroll="class-schedules">{{ _('Class Schedules & Timetables') }}</a>
+      <a href="/gallery" class="hover:text-blue-600 font-semibold" data-scroll="gallery">{{ _('Gallery') }}</a>
+      <a id="homeworkMenu" href="#" class="hover:text-blue-600 font-semibold">Homework</a>
       <!-- Plus icon for more menu -->
       <div class="relative group">
         <button id="more-menu-btn" class="text-blue-600 px-2 py-1 rounded-full hover:bg-blue-100 focus:outline-none">
           <i class="fas fa-plus fa-lg"></i>
         </button>
         <div id="more-menu" class="absolute right-0 mt-2 w-48 bg-white border border-gray-200 rounded-lg shadow-lg py-2 hidden group-hover:block z-50">
-          <a href="/testimonials" class="block px-4 py-2 hover:bg-blue-50" data-scroll="results">Testimonials</a>
-          <a href="/faculty" class="block px-4 py-2 hover:bg-blue-50" data-scroll="faculty">Faculty</a>
-          <a href="/fee" class="block px-4 py-2 hover:bg-blue-50" data-scroll="fee">Fee</a>
-          <a href="/achievements" class="block px-4 py-2 hover:bg-blue-50" data-scroll="results">Achievements</a>
-          <a href="/blog" class="block px-4 py-2 hover:bg-blue-50" data-scroll="blog">Blog</a>
-          <a href="/faqs" class="block px-4 py-2 hover:bg-blue-50" data-scroll="faqs">FAQs</a>
-          <a href="/contact" class="block px-4 py-2 hover:bg-blue-50" data-scroll="find-us">Contact</a>
-          <a href="/admission" class="block px-4 py-2 hover:bg-blue-600 hover:text-white rounded" data-scroll="admission">Enroll Now</a>
-          <a href="/login" class="block px-4 py-2 hover:bg-blue-50" data-scroll="login">Login</a>
+          <a href="/testimonials" class="block px-4 py-2 hover:bg-blue-50" data-scroll="results">{{ _('Testimonials') }}</a>
+          <a href="/faculty" class="block px-4 py-2 hover:bg-blue-50" data-scroll="faculty">{{ _('Faculty') }}</a>
+          <a href="/fee" class="block px-4 py-2 hover:bg-blue-50" data-scroll="fee">{{ _('Fee') }}</a>
+          <a href="/achievements" class="block px-4 py-2 hover:bg-blue-50" data-scroll="results">{{ _('Achievements') }}</a>
+          <a href="/blog" class="block px-4 py-2 hover:bg-blue-50" data-scroll="blog">{{ _('Blog') }}</a>
+          <a href="/faqs" class="block px-4 py-2 hover:bg-blue-50" data-scroll="faqs">{{ _('FAQs') }}</a>
+          <a href="/contact" class="block px-4 py-2 hover:bg-blue-50" data-scroll="find-us">{{ _('Contact') }}</a>
+          <a href="/admission" class="block px-4 py-2 hover:bg-blue-600 hover:text-white rounded" data-scroll="admission">{{ _('Enroll Now') }}</a>
+          <a href="/login" class="block px-4 py-2 hover:bg-blue-50" data-scroll="login">{{ _('Login') }}</a>
         </div>
       </div>
     </div>
@@ -35,23 +37,31 @@
         <i class="fas fa-bars fa-2x"></i>
       </button>
     </div>
+    <!-- Language Toggle Button -->
+    <form method="post" action="/set_language" class="ml-4 flex items-center">
+      <select name="lang" onchange="this.form.submit()" class="border rounded px-2 py-1 text-sm">
+        <option value="en" {% if get_locale() == 'en' %}selected{% endif %}>EN</option>
+        <option value="hi" {% if get_locale() == 'hi' %}selected{% endif %}>हिंदी</option>
+      </select>
+    </form>
   </div>
   <div id="mobile-menu" class="md:hidden hidden px-4 pb-4">
-    <a href="/" class="block py-2 font-semibold" data-scroll="hero">Home</a>
-    <a href="/courses" class="block py-2 font-semibold" data-scroll="subjects">Courses</a>
-    <a href="/schedule" class="block py-2 font-semibold" data-scroll="schedule">Schedule</a>
-    <a href="/study-material" class="block py-2 font-semibold" data-scroll="study-material">Study Material</a>
-    <a href="/announcements" class="block py-2 font-semibold" data-scroll="announcements">Announcements</a>
-    <a href="/gallery" class="block py-2 font-semibold" data-scroll="gallery">Gallery</a>
-    <a href="/testimonials" class="block py-2 font-semibold" data-scroll="results">Testimonials</a>
-    <a href="/faculty" class="block py-2 font-semibold" data-scroll="faculty">Faculty</a>
-    <a href="/fee" class="block py-2 font-semibold" data-scroll="fee">Fee</a>
-    <a href="/achievements" class="block py-2 font-semibold" data-scroll="results">Achievements</a>
-    <a href="/blog" class="block py-2 font-semibold" data-scroll="blog">Blog</a>
-    <a href="/faqs" class="block py-2 font-semibold" data-scroll="faqs">FAQs</a>
-    <a href="/contact" class="block py-2 font-semibold" data-scroll="find-us">Contact</a>
-    <a href="/admission" class="block py-2 bg-blue-600 text-white rounded-lg text-center mt-2" data-scroll="admission">Enroll Now</a>
-    <a href="/login" class="block py-2 font-semibold" data-scroll="login">Login</a>
+    <a href="/" class="block py-2 font-semibold" data-scroll="hero">{{ _('Home') }}</a>
+    <a href="/courses" class="block py-2 font-semibold" data-scroll="subjects">{{ _('Courses') }}</a>
+    <a href="/schedule" class="block py-2 font-semibold" data-scroll="schedule">{{ _('Schedule') }}</a>
+    <a href="/study-material" class="block py-2 font-semibold" data-scroll="study-material">{{ _('Study Material') }}</a>
+    <a href="/announcements" class="block py-2 font-semibold" data-scroll="announcements">{{ _('Announcements') }}</a>
+      <a href="/admin/class_schedules" class="block py-2 font-semibold text-yellow-600" data-scroll="class-schedules">{{ _('Class Schedules & Timetables') }}</a>
+    <a href="/gallery" class="block py-2 font-semibold" data-scroll="gallery">{{ _('Gallery') }}</a>
+    <a href="/testimonials" class="block py-2 font-semibold" data-scroll="results">{{ _('Testimonials') }}</a>
+    <a href="/faculty" class="block py-2 font-semibold" data-scroll="faculty">{{ _('Faculty') }}</a>
+    <a href="/fee" class="block py-2 font-semibold" data-scroll="fee">{{ _('Fee') }}</a>
+    <a href="/achievements" class="block py-2 font-semibold" data-scroll="results">{{ _('Achievements') }}</a>
+    <a href="/blog" class="block py-2 font-semibold" data-scroll="blog">{{ _('Blog') }}</a>
+    <a href="/faqs" class="block py-2 font-semibold" data-scroll="faqs">{{ _('FAQs') }}</a>
+    <a href="/contact" class="block py-2 font-semibold" data-scroll="find-us">{{ _('Contact') }}</a>
+    <a href="/admission" class="block py-2 bg-blue-600 text-white rounded-lg text-center mt-2" data-scroll="admission">{{ _('Enroll Now') }}</a>
+    <a href="/login" class="block py-2 font-semibold" data-scroll="login">{{ _('Login') }}</a>
   </div>
   <script>
     document.getElementById('mobile-menu-btn').onclick = function() {

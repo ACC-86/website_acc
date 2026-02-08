@@ -1,15 +1,15 @@
 {% extends 'base.html' %}
-{% block title %}About Us | Academic Coaching Classes{% endblock %}
+{% block title %}{{ _('About Us') }} | {{ _('Academic Coaching Classes') }}{% endblock %}
 {% block content %}
 <section class="max-w-4xl mx-auto py-10">
-  <h1 class="text-3xl font-bold mb-6 text-blue-700">About Academic Coaching Classes</h1>
-  <p class="text-lg text-gray-700 mb-4">We are dedicated to providing high-quality academic coaching for school students in Maths, Science, and more. Our mission is to empower students to achieve academic excellence through expert guidance, personalized attention, and a supportive learning environment.</p>
+  <h1 class="text-3xl font-bold mb-6 text-blue-700">{{ _('About Academic Coaching Classes') }}</h1>
+  <p class="text-lg text-gray-700 mb-4">{{ _('We are dedicated to providing high-quality academic coaching for school students in Maths, Science, and more. Our mission is to empower students to achieve academic excellence through expert guidance, personalized attention, and a supportive learning environment.') }}</p>
   <ul class="list-disc pl-6 text-gray-600">
-    <li>Experienced and passionate faculty</li>
-    <li>Modern teaching methods</li>
-    <li>Proven track record of results</li>
-    <li>Focus on conceptual clarity and exam success</li>
-    <li>Safe, inclusive, and motivating environment</li>
+    <li>{{ _('Experienced and passionate faculty') }}</li>
+    <li>{{ _('Modern teaching methods') }}</li>
+    <li>{{ _('Proven track record of results') }}</li>
+    <li>{{ _('Focus on conceptual clarity and exam success') }}</li>
+    <li>{{ _('Safe, inclusive, and motivating environment') }}</li>
   </ul>
 </section>
 {% endblock %}

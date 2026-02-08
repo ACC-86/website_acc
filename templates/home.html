@@ -3,58 +3,65 @@
 {% block content %}
 <!-- Carousel Banner Start -->
 <div class="mx-auto w-full py-8 flex flex-col items-center bg-gray-100 rounded-xl shadow mb-8">
-  <h2 class="text-2xl font-bold mb-2 text-blue-700">Carousel Banner</h2>
-  <p class="text-gray-600 text-center max-w-2xl">This is a placeholder for your custom carousel banner. You can add your own images, promotional banners, or announcements here. No external images or links are used. Replace this section with your own content as needed.</p>
+  <div class="w-full max-w-4xl relative" id="carousel-banner">
+    <div class="overflow-hidden rounded-xl shadow-lg border-4 border-white h-48 md:h-64">
+      <img src="{{ url_for('static', filename='img/Carousel_Banner.png') }}" alt="Carousel Banner" class="w-full h-48 md:h-64 object-cover transition-all duration-700" id="carousel-img-0">
+      <img src="{{ url_for('static', filename='img/Carousel_Banner_1.png') }}" alt="Carousel Banner 1" class="w-full h-48 md:h-64 object-cover transition-all duration-700 hidden" id="carousel-img-1">
+    </div>
+    <button id="carousel-prev" class="absolute left-2 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-80 rounded-full p-2 shadow hover:bg-blue-100 focus:outline-none"><i class="fas fa-chevron-left"></i></button>
+    <button id="carousel-next" class="absolute right-2 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-80 rounded-full p-2 shadow hover:bg-blue-100 focus:outline-none"><i class="fas fa-chevron-right"></i></button>
+  </div>
 </div>
 <!-- Hero Section -->
 <section id="hero" class="bg-gradient-to-br from-blue-100 via-teal-100 to-pink-100 py-12 rounded-b-3xl shadow-lg mb-8">
   <div class="max-w-4xl mx-auto text-center">
-    <h1 class="text-4xl md:text-5xl font-bold mb-4 text-blue-700">Empowering Students for Academic Excellence</h1>
-    <p class="text-lg md:text-xl text-gray-700 mb-6">Maths, Science & more. Trusted by hundreds of students in Chanderi.</p>
+    <h1 class="text-4xl md:text-5xl font-bold mb-4 text-blue-700">{{ _('Empowering Students for Academic Excellence') }}</h1>
+      <p class="text-lg md:text-xl text-gray-700 mb-2">Unlock your potential in Maths, Science, and more. Join hundreds of achievers in Chanderi who trust us to inspire, guide, and empower their academic journey!</p>
+      <p class="text-lg md:text-xl text-yellow-700 mb-6 font-semibold">सपनों को हकीकत में बदलने का रास्ता शिक्षा से होकर जाता है।</p>
     <div class="flex flex-col md:flex-row justify-center gap-4">
-      <a href="/admission" class="bg-blue-600 text-white px-8 py-3 rounded-lg shadow hover:bg-blue-700 transition text-lg font-semibold">Enroll Now</a>
-      <a href="tel:8602580207" class="bg-white border border-blue-600 text-blue-700 px-8 py-3 rounded-lg shadow hover:bg-blue-50 transition text-lg font-semibold">Call Us</a>
+      <a href="/admission" class="bg-blue-600 text-white px-8 py-3 rounded-lg shadow hover:bg-blue-700 transition text-lg font-semibold">{{ _('Enroll Now') }}</a>
+      <a href="tel:8602580207" class="bg-white border border-blue-600 text-blue-700 px-8 py-3 rounded-lg shadow hover:bg-blue-50 transition text-lg font-semibold">{{ _('Call Us') }}</a>
     </div>
   </div>
 </section>
 <!-- Carousel Banner End -->
 <!-- Subjects Offered -->
 <section id="subjects" class="max-w-5xl mx-auto py-8">
-  <h2 class="text-2xl font-bold text-center mb-6">Subjects Offered</h2>
+  <h2 class="text-2xl font-bold text-center mb-6">{{ _('Subjects Offered') }}</h2>
   <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
     <div class="bg-white rounded-xl shadow p-4 flex flex-col items-center">
       <i class="fas fa-square-root-alt text-3xl text-blue-500 mb-2"></i>
-      <span class="font-semibold">Mathematics</span>
+      <span class="font-semibold">{{ _('Mathematics') }}</span>
     </div>
     <div class="bg-white rounded-xl shadow p-4 flex flex-col items-center">
       <i class="fas fa-flask text-3xl text-teal-500 mb-2"></i>
-      <span class="font-semibold">Science</span>
+      <span class="font-semibold">{{ _('Science') }}</span>
     </div>
     <div class="bg-white rounded-xl shadow p-4 flex flex-col items-center">
       <i class="fas fa-book text-3xl text-pink-500 mb-2"></i>
-      <span class="font-semibold">English</span>
+      <span class="font-semibold">{{ _('English') }}</span>
     </div>
     <div class="bg-white rounded-xl shadow p-4 flex flex-col items-center">
       <i class="fas fa-globe-asia text-3xl text-blue-400 mb-2"></i>
-      <span class="font-semibold">Social Science</span>
+      <span class="font-semibold">{{ _('Social Science') }}</span>
     </div>
   </div>
 </section>
 <!-- Why Choose Us -->
 <section id="why-us" class="bg-white py-10 rounded-xl shadow max-w-5xl mx-auto my-8">
-  <h2 class="text-2xl font-bold text-center mb-6">Why Choose Us?</h2>
+  <h2 class="text-2xl font-bold text-center mb-6">{{ _('Why Choose Us?') }}</h2>
   <div class="grid md:grid-cols-3 gap-6">
     <div class="bg-blue-50 rounded-lg p-6 shadow flex flex-col items-center">
       <i class="fas fa-user-tie text-2xl text-blue-600 mb-2"></i>
-      <span class="font-semibold">Experienced Faculty</span>
+      <span class="font-semibold">{{ _('Experienced Faculty') }}</span>
     </div>
     <div class="bg-teal-50 rounded-lg p-6 shadow flex flex-col items-center">
       <i class="fas fa-award text-2xl text-teal-600 mb-2"></i>
-      <span class="font-semibold">Proven Results</span>
+      <span class="font-semibold">{{ _('Proven Results') }}</span>
     </div>
     <div class="bg-pink-50 rounded-lg p-6 shadow flex flex-col items-center">
       <i class="fas fa-chalkboard-teacher text-2xl text-pink-600 mb-2"></i>
-      <span class="font-semibold">Personalized Attention</span>
+      <span class="font-semibold">{{ _('Personalized Attention') }}</span>
     </div>
   </div>
 </section>
@@ -100,21 +107,17 @@
         </tr>
       </thead>
       <tbody>
-        <tr class="border-b">
-          <td class="py-2 px-4">8</td>
-          <td class="py-2 px-4">Mathematics</td>
-          <td class="py-2 px-4">Monday</td>
-          <td class="py-2 px-4">4:00 PM - 5:30 PM</td>
-          <td class="py-2 px-4">Mr. Sharma</td>
-        </tr>
-        <tr class="border-b">
-          <td class="py-2 px-4">10</td>
-          <td class="py-2 px-4">Science</td>
-          <td class="py-2 px-4">Wednesday</td>
-          <td class="py-2 px-4">5:45 PM - 7:15 PM</td>
-          <td class="py-2 px-4">Ms. Gupta</td>
-        </tr>
-        <!-- Add more rows as needed -->
+          {% for row in schedule %}
+          <tr class="border-b">
+            <td class="py-2 px-4">{{ row.class }}</td>
+            <td class="py-2 px-4">{{ row.subject }}</td>
+            <td class="py-2 px-4">{{ row.day }}</td>
+            <td class="py-2 px-4">{{ row.time }}</td>
+            <td class="py-2 px-4">{{ row.faculty }}</td>
+          </tr>
+          {% else %}
+          <tr><td colspan="5" class="text-center text-gray-400">No schedules yet.</td></tr>
+          {% endfor %}
       </tbody>
     </table>
   </div>

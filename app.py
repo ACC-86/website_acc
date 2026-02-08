@@ -1,14 +1,37 @@
+from flask import Flask, render_template, request, redirect, url_for, flash, session, g
+from flask_babel import Babel, _
+from flask_babel import get_locale
 
-from flask import Flask, render_template, request, redirect, url_for, flash, session
 app = Flask(__name__)
+babel = Babel(app)
+# Language toggle route (must be after app is defined)
+@app.route('/set_language', methods=['POST'])
+def set_language():
+    lang = request.form.get('lang')
+    if lang in app.config['BABEL_SUPPORTED_LOCALES']:
+        session['lang'] = lang
+    return redirect(request.referrer or url_for('home'))
 import os
 from dotenv import load_dotenv
+
 
 # Load environment variables from .env file
 load_dotenv()
 app.secret_key = os.environ.get('SECRET_KEY')
 
-from db import get_courses, get_testimonials, save_inquiry, save_admission
+# --- Flask-Babel Setup ---
+app.config['BABEL_DEFAULT_LOCALE'] = 'en'
+app.config['BABEL_SUPPORTED_LOCALES'] = ['en', 'hi']
+app.config['BABEL_TRANSLATION_DIRECTORIES'] = 'translations'
+
+# Inject _ function into Jinja templates
+@app.context_processor
+def inject_translator():
+    return {'_': _, 'get_locale': get_locale}
+
+
+
+from db import get_courses, get_testimonials, save_inquiry, save_admission, save_homework, get_homework_for_today
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     # Placeholder for authentication logic
@@ -79,7 +102,10 @@ def inject_year():
 def home():
     courses = get_courses(limit=6)
     testimonials = get_testimonials(limit=4)
-    return render_template('home.html', courses=courses, testimonials=testimonials)
+    homework = get_homework_for_today()
+    from db import get_schedule
+    schedule = get_schedule()
+    return render_template('home.html', courses=courses, testimonials=testimonials, homework=homework, schedule=schedule)
 
 @app.route('/courses')
 def courses():
@@ -125,6 +151,18 @@ def admission():
         return redirect(url_for('admission'))
     return render_template('admission.html')
 
+@app.route('/admin/homework', methods=['GET', 'POST'])
+def admin_homework():
+    homework = get_homework_for_today()
+    if request.method == 'POST':
+        hw = {}
+        for cls in [5,6,7,8]:
+            hw[cls] = request.form.get(f'homework_{cls}', '')
+        save_homework(hw)
+        flash('Homework updated successfully!', 'success')
+        homework = hw
+    return render_template('admin/homework.html', homework=homework)
+
 # Student Area (UI only)
 @app.route('/student/dashboard')
 def student_dashboard():
@@ -166,3 +204,30 @@ def admin_students():
 @app.route('/admin/analytics')
 def admin_analytics():
     return render_template('admin/analytics.html')
+
+# Admin Class Schedules & Timetables
+@app.route('/admin/class_schedules', methods=['GET', 'POST'])
+def admin_class_schedules():
+    from db import get_schedule, save_schedule
+    is_admin = True  # Replace with real admin check
+    schedule = get_schedule()
+    if request.method == 'POST':
+        # Parse multiple schedule entries from form
+        schedule_list = []
+        classes = request.form.getlist('class')
+        subjects = request.form.getlist('subject')
+        days = request.form.getlist('day')
+        times = request.form.getlist('time')
+        faculties = request.form.getlist('faculty')
+        for i in range(len(classes)):
+            schedule_list.append({
+                'class': classes[i],
+                'subject': subjects[i],
+                'day': days[i],
+                'time': times[i],
+                'faculty': faculties[i]
+            })
+        save_schedule(schedule_list)
+        schedule = get_schedule()
+        flash('Class schedule updated!', 'success')
+    return render_template('admin/class_schedules.html', is_admin=is_admin, schedule=schedule)

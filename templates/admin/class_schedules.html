@@ -1,0 +1,97 @@
+{% extends 'base.html' %}
+{% block title %}Class Schedules & Timetables | Academic Coaching Classes{% endblock %}
+{% block content %}
+<section class="max-w-4xl mx-auto py-8">
+  <h2 class="text-2xl font-bold mb-6 text-yellow-700">Class Schedules & Timetables</h2>
+  <div id="schedule-notification" class="bg-yellow-200 text-yellow-900 px-4 py-2 rounded mb-4 font-semibold hidden">
+    Class schedule has been updated!
+  </div>
+  <div class="bg-white rounded shadow p-6">
+    <!-- Schedule table or content goes here -->
+    <table class="min-w-full text-sm">
+        <thead>
+          <tr>
+            <th class="px-4 py-2">Class</th>
+            <th class="px-4 py-2">Subject</th>
+            <th class="px-4 py-2">Day</th>
+            <th class="px-4 py-2">Time</th>
+            <th class="px-4 py-2">Faculty</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for row in schedule %}
+          <tr>
+            <td class="border px-4 py-2">{{ row.class }}</td>
+            <td class="border px-4 py-2">{{ row.subject }}</td>
+            <td class="border px-4 py-2">{{ row.day }}</td>
+            <td class="border px-4 py-2">{{ row.time }}</td>
+            <td class="border px-4 py-2">{{ row.faculty }}</td>
+          </tr>
+          {% else %}
+          <tr><td colspan="5" class="text-center text-gray-400">No schedules yet.</td></tr>
+          {% endfor %}
+        </tbody>
+    </table>
+    {% if is_admin %}
+      <form method="post" class="mt-6">
+        <div id="schedule-entries">
+          {% for row in schedule %}
+          <div class="flex gap-2 mb-2">
+            <input type="text" name="class" value="{{ row.class }}" placeholder="Class" class="border rounded px-2 py-1 w-16">
+            <input type="text" name="subject" value="{{ row.subject }}" placeholder="Subject" class="border rounded px-2 py-1 w-32">
+            <input type="text" name="day" value="{{ row.day }}" placeholder="Day" class="border rounded px-2 py-1 w-24">
+            <input type="text" name="time" value="{{ row.time }}" placeholder="Time" class="border rounded px-2 py-1 w-32">
+            <input type="text" name="faculty" value="{{ row.faculty }}" placeholder="Faculty" class="border rounded px-2 py-1 w-32">
+          </div>
+          {% endfor %}
+          <!-- Empty row for adding new -->
+          <div class="flex gap-2 mb-2">
+            <input type="text" name="class" placeholder="Class" class="border rounded px-2 py-1 w-16">
+            <input type="text" name="subject" placeholder="Subject" class="border rounded px-2 py-1 w-32">
+            <input type="text" name="day" placeholder="Day" class="border rounded px-2 py-1 w-24">
+            <input type="text" name="time" placeholder="Time" class="border rounded px-2 py-1 w-32">
+            <input type="text" name="faculty" placeholder="Faculty" class="border rounded px-2 py-1 w-32">
+          </div>
+        </div>
+        <button type="submit" class="bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-2 px-4 rounded focus:outline-none mt-2">Save Changes</button>
+      </form>
+    {% endif %}
+  </div>
+</section>
+<script>
+function showScheduleNotification() {
+  var notif = document.getElementById('schedule-notification');
+  notif.classList.remove('hidden');
+  setTimeout(function() {
+    notif.classList.add('hidden');
+  }, 5000);
+}
+// Example: show notification when schedule is updated
+// showScheduleNotification();
+
+// Modal logic
+document.addEventListener('DOMContentLoaded', function() {
+  var editBtn = document.getElementById('edit-schedule-btn');
+  var modal = document.getElementById('edit-schedule-modal');
+  var closeBtn = document.getElementById('close-modal-btn');
+  var form = document.getElementById('schedule-edit-form');
+  if (editBtn) {
+    editBtn.onclick = function() {
+      modal.classList.remove('hidden');
+    };
+  }
+  if (closeBtn) {
+    closeBtn.onclick = function() {
+      modal.classList.add('hidden');
+    };
+  }
+  if (form) {
+    form.onsubmit = function(e) {
+      e.preventDefault();
+      modal.classList.add('hidden');
+      showScheduleNotification();
+    };
+  }
+});
+</script>
+{% endblock %}

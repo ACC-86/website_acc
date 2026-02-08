@@ -2,6 +2,9 @@
 {% block title %}Admin Dashboard | Academic Coaching Classes{% endblock %}
 {% block content %}
 <section class="max-w-5xl mx-auto py-10">
+  <div id="schedule-notification" class="bg-yellow-200 text-yellow-900 px-4 py-2 rounded mb-4 font-semibold hidden">
+    Class schedule has been updated!
+  </div>
   <h1 class="text-3xl font-bold mb-8 text-blue-700">Admin Dashboard</h1>
   <div class="grid md:grid-cols-3 gap-8">
     <a href="/admin/courses" class="bg-white rounded-xl shadow p-6 flex flex-col items-center hover:bg-blue-50 transition">
@@ -18,4 +21,15 @@
     </a>
   </div>
 </section>
+<script>
+function showScheduleNotification() {
+  var notif = document.getElementById('schedule-notification');
+  notif.classList.remove('hidden');
+  setTimeout(function() {
+    notif.classList.add('hidden');
+  }, 5000);
+}
+// Example: show notification when schedule is updated
+// showScheduleNotification();
+</script>
 {% endblock %}

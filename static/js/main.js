@@ -2,6 +2,56 @@
 // Only runs on the Home page
 
 document.addEventListener('DOMContentLoaded', function() {
+      // Sticky Social Bar minimize logic
+      const socialBarToggle = document.getElementById('social-bar-toggle');
+      const socialBarLinks = document.getElementById('social-bar-links');
+      const socialBarArrow = document.getElementById('social-bar-arrow');
+      let socialBarMinimized = false;
+      if (socialBarToggle && socialBarLinks && socialBarArrow) {
+        socialBarToggle.addEventListener('click', function() {
+          socialBarMinimized = !socialBarMinimized;
+          if (socialBarMinimized) {
+            socialBarLinks.classList.add('hidden');
+            socialBarArrow.classList.remove('fa-chevron-right');
+            socialBarArrow.classList.add('fa-chevron-left');
+            socialBarToggle.title = 'Show Social Bar';
+          } else {
+            socialBarLinks.classList.remove('hidden');
+            socialBarArrow.classList.remove('fa-chevron-left');
+            socialBarArrow.classList.add('fa-chevron-right');
+            socialBarToggle.title = 'Minimize Social Bar';
+          }
+        });
+      }
+    // Carousel Banner logic
+    const carouselImages = [
+      document.getElementById('carousel-img-0'),
+      document.getElementById('carousel-img-1')
+    ];
+    let currentIndex = 0;
+    function showCarouselImage(idx) {
+      carouselImages.forEach((img, i) => {
+        if (img) img.classList.toggle('hidden', i !== idx);
+      });
+    }
+    function nextCarousel() {
+      currentIndex = (currentIndex + 1) % carouselImages.length;
+      showCarouselImage(currentIndex);
+    }
+    function prevCarousel() {
+      currentIndex = (currentIndex - 1 + carouselImages.length) % carouselImages.length;
+      showCarouselImage(currentIndex);
+    }
+    // Arrow button listeners
+    const prevBtn = document.getElementById('carousel-prev');
+    const nextBtn = document.getElementById('carousel-next');
+    if (prevBtn && nextBtn) {
+      prevBtn.addEventListener('click', prevCarousel);
+      nextBtn.addEventListener('click', nextCarousel);
+    }
+    // Auto-slide every 15 seconds
+    setInterval(nextCarousel, 15000);
+    showCarouselImage(currentIndex);
   function isHomePage() {
     return window.location.pathname === '/' || window.location.pathname === '/home';
   }

@@ -3,24 +3,24 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Users List</title>
+	<title>{{ _('Users List') }}</title>
 </head>
 <body>
-	<h1>Users from MongoDB</h1>
+	<h1>{{ _('Users from MongoDB') }}</h1>
 	<form action="/add_user" method="post">
-		<input type="text" name="name" placeholder="Name" required>
-		<input type="email" name="email" placeholder="Email" required>
-		<input type="number" name="age" placeholder="Age" required>
-		<button type="submit">Add User</button>
+		<input type="text" name="name" placeholder="{{ _('Name') }}" required>
+		<input type="email" name="email" placeholder="{{ _('Email') }}" required>
+		<input type="number" name="age" placeholder="{{ _('Age') }}" required>
+		<button type="submit">{{ _('Add User') }}</button>
 	</form>
-	<h2>All Users</h2>
+	<h2>{{ _('All Users') }}</h2>
 	<ul>
 		{% for user in users %}
 			<li>
-				Name: {{ user.name }} | Email: {{ user.email }} | Age: {{ user.age }}
+				{{ _('Name:') }} {{ user.name }} | {{ _('Email:') }} {{ user.email }} | {{ _('Age:') }} {{ user.age }}
 			</li>
 		{% else %}
-			<li>No users found.</li>
+			<li>{{ _('No users found.') }}</li>
 		{% endfor %}
 	</ul>
 </body>
